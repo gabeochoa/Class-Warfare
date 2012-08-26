@@ -41,8 +41,8 @@ public abstract class Level {
 		random = new Random();
 		coinWorth = 20;
 		winsFont = new Font();
-		levelLimit = 200;
-		timeLimit = 50;
+		levelLimit = 999;
+		timeLimit = 999;
 	}
 	
 	public void loop(Player p, Graphics gr)
@@ -88,7 +88,7 @@ public abstract class Level {
 			addEntity(hold);
 		}
 		
-		if(coins < 20)
+		if(coins < 25)
 		{
 			hold = new Coin(random.nextInt(480), random.nextInt(340), 20, coinWorth);
 			addEntity(hold);
@@ -120,12 +120,12 @@ public abstract class Level {
 		coinPickUP();
 		ballballCollision();
 		//gravitate();
-		//gravitateTowardsMoney();
+		gravitateTowardsMoney();
 		wallCollision();
 		
 		if(player.action)
 		{
-			giveMoney();
+			//giveMoney();
 		}
 		
 		checkWin();

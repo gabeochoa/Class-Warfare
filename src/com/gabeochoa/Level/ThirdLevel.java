@@ -3,6 +3,7 @@ package com.gabeochoa.Level;
 import java.awt.Graphics;
 
 import com.gabeochoa.Evo;
+import com.gabeochoa.Menu.WinMenu;
 import com.gabeochoa.engine.Art;
 
 public class ThirdLevel extends Level{
@@ -19,8 +20,8 @@ public class ThirdLevel extends Level{
 		
 		bounds = new Bounds(0,Evo.WIDTH, 0, Evo.HEIGHT);
 		levelLimit = 510;
-		coinWorth = 5;
-		timeLimit = 12;
+		coinWorth = 10;
+		timeLimit = 30;
 	}
 	
 	public void loop(Graphics gr)
@@ -47,7 +48,7 @@ public class ThirdLevel extends Level{
 
 		if(player.wealth > levelLimit)
 		{
-			switchLevel(2);
+			game.setMenuTo(new WinMenu());
 		}
 	}
 }

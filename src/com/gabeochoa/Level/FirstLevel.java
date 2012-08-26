@@ -19,6 +19,7 @@ public class FirstLevel extends Level{
 		bounds = new Bounds(0,Evo.WIDTH, 0, Evo.HEIGHT);
 		levelLimit = 510;
 		coinWorth = 20;
+		timeLimit = 60;
 	}
 	
 	public void loop(Graphics gr)

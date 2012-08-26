@@ -58,7 +58,7 @@ public class Player extends Entity {
 			x+=speed;
 		}
 		action = false;
-		System.out.println(""+x+" , "+y+" :"+wealth);
+		//System.out.println(""+x+" , "+y+" :"+wealth);
 	}
 
 	private void walkSound() {

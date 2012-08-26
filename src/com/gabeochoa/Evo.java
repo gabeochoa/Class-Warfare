@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.gabeochoa.Level.Level;
 import com.gabeochoa.Menu.*;
 import com.gabeochoa.engine.*;
+import com.gabeochoa.entities.Coin;
 import com.gabeochoa.entities.Entity;
 import com.gabeochoa.entities.Person;
 import com.gabeochoa.entities.Player;
@@ -178,7 +179,7 @@ public class Evo extends Game {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		level.addEntity(new Person(e.getX(), e.getY(), 20));
+		level.addEntity(new Coin(e.getX(), e.getY(), 20, 100));
 	}
 
 	@Override
@@ -203,9 +204,9 @@ public class Evo extends Game {
 		level = Level.loadLevel(this, string);
 		level.entities = new ArrayList<Entity>();
 		level.player = player;
+		level.addEntity(player);
 		player.wealth = 0;
-		startTime = 0;
-		
+		startTime = System.nanoTime();
 	}
 
 	public void restartLevel(String string)
