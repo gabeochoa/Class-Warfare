@@ -28,6 +28,8 @@ public class WinMenu extends Menu {
 		winsFont = new Font();
 		fjob = getRandomJob();
 		mjob = getRandomJob();
+		Sound.third.stop();
+		Sound.endGame.play();
 	}
 	
 	public void paint(Graphics gr)
@@ -38,7 +40,7 @@ public class WinMenu extends Menu {
 	
 	public void drawMenu()
 	{
-		g.drawImage(Art.getImage("./res/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
+		g.drawImage(Art.getImage("/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
 		
 		//for gif, have to use imageIcon
 		
@@ -161,6 +163,7 @@ public class WinMenu extends Menu {
 		if (choice >= choices.length)
 			choice = choices.length - 1;
 		if (select) {
+			Sound.endGame.stop();
 			Sound.select.play();
 			if (choice == 0) {
 				game.setMenuTo(new topMenu());

@@ -19,4 +19,8 @@ public class Application {
 		loop.start();
 		
 	}
+
+	public void stop() {
+		
+	}
 }

@@ -41,7 +41,7 @@ public abstract class Level {
 		random = new Random();
 		coinWorth = 20;
 		winsFont = new Font();
-		levelLimit = 999;
+		levelLimit = 500;
 		timeLimit = 999;
 	}
 	
@@ -59,16 +59,19 @@ public abstract class Level {
 	}
 
 	private void drawBackground() {
-		g.drawImage(Art.getImage("./res/level/"+lvlName+".png"),0, 0, Evo.WIDTH, Evo.HEIGHT,null);
+		g.drawImage(Art.getImage("/level/"+lvlName+".png"),0, 0, Evo.WIDTH, Evo.HEIGHT,null);
 	}
 
 	private void drawHUD() {
 		winsFont.printLine("Wealth", 11, 5, 11, g);
 		winsFont.printLine(""+player.wealth, 20, 75, 5, g);
 		
-		winsFont.printLine("Time===========Left", 11, 205, 11, g);
+		winsFont.printLine("Time======Left", 11, 210, 11, g);
 		int timeLeft = (int) (timeLimit - game.getTimePassed());
-		winsFont.printLine(""+timeLeft, 25, 255, 5, g);
+		if(timeLeft < 10)
+		winsFont.printLine("0"+timeLeft, 25, 260, 5, g);
+		else
+		winsFont.printLine(""+timeLeft, 25, 260, 5, g);
 		
 		winsFont.printLine("Needed to Finish", 11, 440, 4, g);
 		winsFont.printLine(""+(levelLimit), 15, 510, 15, g);
@@ -337,7 +340,7 @@ public void coinPickUP()
 		Level requested = getLevelByName(name);
 		if(requested != null)
 		{
-			requested.init(game, name, Art.getImage("./images/level/"+name+".png"));
+			requested.init(game, name, Art.getImage("/level/"+name+".png"));
 			return requested;
 		}
 		else
@@ -351,6 +354,7 @@ public void coinPickUP()
 		player = game.player;
 		background = imageFromFile;
 	}
+	
 	private static Level getLevelByName(String name)
 	{
 	 try{

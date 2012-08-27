@@ -6,10 +6,10 @@ import javax.sound.sampled.*;
 
 public enum SoundP{
    
-	mainMenu("./sound/bu-random-cannons.wav"),
-	moveSelection("./sound/menuHover.wav"),
-	select("./sound/selectOption.wav"),
-	walk("./sound/footsteps.wav");
+	mainMenu("/bu-random-cannons.wav"),
+	moveSelection("/menuHover.wav"),
+	select("/selectOption.wav"),
+	walk("/footsteps.wav");
 	
 	
     int position;

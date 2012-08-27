@@ -12,7 +12,7 @@ public class Art {
 	public static Image getImage(String filename)
 	{
 		try {
-			return ImageIO.read(new File(filename));
+			return ImageIO.read(Art.class.getResourceAsStream((filename)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

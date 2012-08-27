@@ -28,7 +28,7 @@ public class About extends Menu {
 	@Override
 	public void drawMenu() {
 		
-		g.drawImage(Art.getImage("./res/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
+		g.drawImage(Art.getImage("/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
 		
 		g.setColor(Color.white);
 		String title = "Class Warfare";

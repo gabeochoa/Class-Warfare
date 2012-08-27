@@ -42,11 +42,11 @@ public abstract class Entity {
 		wealth = 0;
 		
 		if(name.equals("first"))
-			col = new Color(wealth/2,0,0,255);
+			col = new Color(wealth/2,0,0,150);
 		if(name.equals("second"))
-			col = new Color(255,0,wealth/2,255);
+			col = new Color(255,0,wealth/2,150);
 		if(name.equals("third"))
-			col = new Color(255,wealth/2,255,255);
+			col = new Color(255,wealth/2,255,150);
 		
 	}
 	

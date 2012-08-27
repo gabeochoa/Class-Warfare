@@ -7,6 +7,8 @@ public class Loop extends Thread{
 
 	public Long sTime, eTime;
 	public int fps, updates;
+	private boolean running;
+	private Thread thread;
 	
 	public Loop(Game game, Canvas canvas)
 	{
@@ -16,6 +18,8 @@ public class Loop extends Thread{
 	
 	public void run()
 	{
+		while(running)
+		{
 		game.init();
 		sTime = System.currentTimeMillis();
 		
@@ -34,7 +38,7 @@ public class Loop extends Thread{
 			eTime = System.currentTimeMillis() - sTime;
 			
 			//limit fps V
-			if(updates > 2000)
+			if(updates > 4000)
 			{
 				eTime = (long) 2000;
 			}
@@ -51,6 +55,26 @@ public class Loop extends Thread{
 				}
 			
 		}
+		}
 		
 	}
+	
+	public synchronized void start() {
+		if (running) return;
+		running = true;
+		thread = new Thread(this);
+		thread.start();
+	}
+
+	public synchronized void stopMe() {
+		if (!running) return;
+		running = false;
+		try {
+			thread.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
 }

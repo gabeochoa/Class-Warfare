@@ -3,6 +3,8 @@ package com.gabeochoa.Level;
 import java.awt.Graphics;
 
 import com.gabeochoa.Evo;
+import com.gabeochoa.Sound;
+import com.gabeochoa.Menu.WinMenu;
 
 public class FourthLevel extends Level{
 
@@ -14,12 +16,11 @@ public class FourthLevel extends Level{
 		super();
 		xSpawn = Evo.WIDTH/2;
 		ySpawn = Evo.HEIGHT/2;
-		lvlName = "first";
+		lvlName = "fourth";
 		
 		bounds = new Bounds(0,Evo.WIDTH, 0, Evo.HEIGHT);
-		levelLimit = 510;
 		coinWorth = 10;
-		timeLimit = 6;
+		timeLimit = 20;
 	}
 	
 	public void loop(Graphics gr)
@@ -37,11 +38,17 @@ public class FourthLevel extends Level{
 	
 	public void switchLevel(int id)
 	{
+		
 		if(id == 2) game.switchLevel("Win", 2);
 	}
 
 	@Override
 	public void checkWin() {
-		
+
+		if(player.wealth > levelLimit)
+		{
+			Sound.fourth.stop();
+			game.setMenuTo(new WinMenu());
+		}
 	}
 }

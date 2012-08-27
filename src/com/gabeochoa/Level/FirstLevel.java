@@ -3,6 +3,7 @@ package com.gabeochoa.Level;
 import java.awt.Graphics;
 
 import com.gabeochoa.Evo;
+import com.gabeochoa.Sound;
 import com.gabeochoa.engine.Art;
 
 public class FirstLevel extends Level{
@@ -17,7 +18,6 @@ public class FirstLevel extends Level{
 		lvlName = "first";
 		
 		bounds = new Bounds(0,Evo.WIDTH, 0, Evo.HEIGHT);
-		levelLimit = 510;
 		coinWorth = 20;
 		timeLimit = 60;
 	}
@@ -30,10 +30,6 @@ public class FirstLevel extends Level{
 		
 	}
 	
-	private void drawBackground() {
-		g.drawImage(Art.getImage("./res/level/"+lvlName+".png"),0, 0, Evo.WIDTH, Evo.HEIGHT,null);
-	}
-	
 	public void paint(Graphics gr)
 	{
 		g = gr;
@@ -44,12 +40,13 @@ public class FirstLevel extends Level{
 
 		if(player.wealth > levelLimit)
 		{
+			//Sound.first.stop();
 			switchLevel(2);
 		}
 	}
 	
 	public void switchLevel(int id)
 	{
-		if(id == 2) game.switchLevel("Second", 2);
+		if(id == 2) game.switchLevel("second", 2);
 	}
 }

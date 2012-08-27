@@ -206,7 +206,28 @@ public class Evo extends Game {
 		level.player = player;
 		level.addEntity(player);
 		player.wealth = 0;
+		
 		startTime = System.nanoTime();
+		
+		if(string.equals("first"))
+			{
+				Sound.first.play();
+			}
+		if(string.equals("second"))
+			{
+			    Sound.first.stop();
+				Sound.second.play();
+			}
+		if(string.equals("third"))
+		{
+		    Sound.second.stop();
+			Sound.third.play();
+		}
+		if(string.equals("forth"))
+		{
+		    Sound.third.stop();
+			Sound.fourth.play();
+		}
 	}
 
 	public void restartLevel(String string)

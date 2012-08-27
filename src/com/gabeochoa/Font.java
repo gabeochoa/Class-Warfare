@@ -26,7 +26,7 @@ public class Font {
 	
 	public Font()
 	{
-		this.mainImage = Letter.toBufferedImage(Art.getImage("./res/alphabetWhiteNumbers.png"));
+		this.mainImage = Letter.toBufferedImage(Art.getImage("/alphabetWhiteNumbers.png"));
 		
 		BufferedImage temp = null;
 		Letter tempLetter;

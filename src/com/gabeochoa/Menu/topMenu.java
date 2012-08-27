@@ -42,7 +42,7 @@ public class topMenu extends Menu {
 	
 	public void drawMenu()
 	{
-		g.drawImage(Art.getImage("./res/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
+		g.drawImage(Art.getImage("/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
 		
 		//for gif, have to use imageIcon
 		
@@ -62,7 +62,7 @@ public class topMenu extends Menu {
 		if(firstTime)
 		{
 			firstTime = false;
-		//	Sound.mainMenu.play();
+		Sound.mainMenu.play();
 		}
 		if (up || down) 
 			Sound.moveSelection.play();
@@ -77,6 +77,8 @@ public class topMenu extends Menu {
 		if (select) {
 			Sound.select.play();
 			if (choice == 0) {
+				Sound.mainMenu.stop();
+				Sound.first.play();
 				game.setMenuTo(null);
 				game.startGame();
 			}

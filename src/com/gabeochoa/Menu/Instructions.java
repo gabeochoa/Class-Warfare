@@ -28,17 +28,18 @@ public class Instructions extends Menu {
 	@Override
 	public void drawMenu() {
 		
-		g.drawImage(Art.getImage("./res/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
+		g.drawImage(Art.getImage("/menu/black.png"), 0,0, Evo.WIDTH, Evo.HEIGHT,null);
 		
 		g.setColor(Color.white);
 		String title = "Instructions";
 		String[] lines = 
 			{
 				"WASD or Arrow Keys to Move",
-				"and Space to push.",
-				
+				"and Space or Enter to select.",
+				"",
 				"Collect money to move up in",
-				"the world."
+				"the world to STAND OUT from",
+				"the crowd."
 			};
 		
 		winsFont.printLine(title, 40, 50, 13, g);

@@ -80,7 +80,7 @@ public class Player extends Entity {
 	}
 	public void drawEntity(){
 		
-		g.setColor(Color.white);
+		g.setColor(col);
 		g.fillOval(x, y,radius, radius);
 	}
 	@Override
